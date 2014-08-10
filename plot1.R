@@ -1,18 +1,21 @@
 library(datasets)
 
 ##
+## Plots plot1 exercise
+##
+## Input:
+##   data - preprocessed data
+##
+plot1<-function(data) {
+  hist(data$Global_active_power, col="red", xlab="Global Active Power (kilowatts)", main="Global Active Power")  
+}
+##
 ##Read, clean and select data
 ##
-data<-read.table("..\\household_power_consumption.txt", header=TRUE, sep=";", na.strings="?", colClasses=c("character", "character", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"))
-#creating column of type datetime
-data<-within(data, datetime<-strptime(paste(Date, Time), "%d/%m/%Y %H:%M:%S"))
-#then remove the first 2 columns
-data<-data[, -(1:2)]
-#select the proper data
-data<-data[as.Date(data$datetime) <= as.Date("2007-02-02") & as.Date(data$datetime) >= as.Date("2007-02-01") ,]
+data<-readdata("..\\household_power_consumption.txt")
 
 
 #plotting
 png(filename="plot1.png", width=480, height=480)
-hist(data$Global_active_power, col="red", xlab="Global Active Power (kilowatts)", main="Global Active Power")
+plot1(data)
 dev.off()
