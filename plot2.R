@@ -12,7 +12,7 @@ data<-data[, -(1:2)]
 data<-data[as.Date(data$datetime) <= as.Date("2007-02-02") & as.Date(data$datetime) >= as.Date("2007-02-01") ,]
 
 
-#plotting
-png(filename="plot1.png", width=480, height=480)
-hist(data$Global_active_power, col="red", xlab="Global Active Power (kilowatts)", main="Global Active Power")
+#Plotting
+png(filename="plot2.png", width=480, height=480)
+with(data, plot(datetime, Global_active_power, type="l", xlab="", ylab="Global Active Power (kilowatts)"))
 dev.off()
