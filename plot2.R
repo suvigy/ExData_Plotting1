@@ -6,8 +6,8 @@ library(datasets)
 ## Input:
 ##   data - preprocessed data
 ##
-plot2<-function(data) {
-  with(data, plot(datetime, Global_active_power, type="l", xlab="", ylab="Global Active Power (kilowatts)"))  
+plot2<-function(data, ylabel="Global Active Power (kilowatts)") {
+  with(data, plot(datetime, Global_active_power, type="l", xlab="", ylab=ylabel))  
 }
 
 ##
